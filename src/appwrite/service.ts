@@ -7,8 +7,8 @@ const appwriteClient = new Client()
 // const APPWRITE_ENDPOINT: string = Config.APPWRITE_ENDPOINT!;
 // const APPWRITE_PROJECT_ID: string = Config.APPWRITE_PROJECT_ID!;
 
-const APPWRITE_ENDPOINT: string = 'https://fra.cloud.appwrite.io/v1';
-const APPWRITE_PROJECT_ID: string = '686f88c500260fb7913b';
+const APPWRITE_ENDPOINT = 'https://fra.cloud.appwrite.io/v1';
+const APPWRITE_PROJECT_ID = '686f88c500260fb7913b';
 
 type CreateUserAccount = {
     email: string;
@@ -73,13 +73,13 @@ class AppwriteService {
     // get user details
     async getUser() {
         try {
-            return await this.account.get();
+            return await this.account.getPrefs();
         } catch (error) {
             Snackbar.show({
                 text: String(error),
                 duration: Snackbar.LENGTH_LONG
             })
-            console.log("appwrite service :: login() :: " + error);
+            console.log("appwrite service :: getUser() :: " + error);
         }
     }
 
